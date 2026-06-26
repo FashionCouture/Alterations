@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Montgomery Fashion Design">
   <meta name="twitter:description" content="Diseño de moda, clases de costura y alteraciones finas por Sr. Montgomery.">
   <meta name="twitter:image" content="https://montgomeryfashiondesign.com/assets/montgomery-fashion-logo.jpg">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/tailwind-static.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -794,9 +794,9 @@
       <button class="settings-float" id="settings-btn" type="button" aria-label="Guardar contacto en el teléfono" onclick="saveContact()">
         <i class="fa-solid fa-user-plus"></i>
       </button>
-      <a class="call-float" href="https://wa.me/16318228581" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span data-i18n="callMe">Call me</span>
+            <a class="call-float" href="tel:+16318228581" aria-label="Llamar por teléfono">
+        <i class="fa-solid fa-phone"></i>
+        <span data-i18n="callMe">Llámame</span>
       </a>
     </section>
 
@@ -1301,7 +1301,7 @@
         tapHint: "Toca una opción",
         services: "Alteraciones",
         gallery: "Galería",
-        callMe: "WhatsApp",
+        callMe: "Llámame",
         galleryTitle: "Galería",
         galleryText: "Una selección de prendas, detalles y trabajos del taller.",
         galleryEmpty: "Agrega enlaces de imágenes desde el panel administrador.",
@@ -1365,7 +1365,7 @@
         tapHint: "Touchez une option",
         services: "Retouches",
         gallery: "Galerie",
-        callMe: "WhatsApp",
+        callMe: "Appelez-moi",
         galleryTitle: "Galerie",
         galleryText: "Une sélection de vêtements, de détails et de travaux d'atelier.",
         galleryEmpty: "Ajoutez des liens d'images depuis le panneau administrateur.",
@@ -1429,7 +1429,7 @@
         tapHint: "Tocca un'opzione",
         services: "Alterazioni",
         gallery: "Galleria",
-        callMe: "WhatsApp",
+        callMe: "Chiamami",
         galleryTitle: "Galleria",
         galleryText: "Una selezione di capi, dettagli e lavori di atelier.",
         galleryEmpty: "Aggiungi link alle immagini dal pannello amministratore.",
@@ -1553,8 +1553,9 @@
       $(".main-bg").style.backgroundImage = `linear-gradient(180deg, rgba(23, 20, 18, 0.12), rgba(23, 20, 18, 0.72)), url("${business.heroImage || defaultConfig.heroImage}")`;
 
       const digits = phoneDigits(business.whatsapp || business.phone);
+      const callDigits = phoneDigits(business.phone || business.whatsapp);
       const call = $(".call-float");
-      if (call) call.href = digits ? `https://wa.me/${digits}` : "#";
+      if (call) call.href = callDigits ? `tel:+${callDigits}` : "#";
       setLinkOrPending(".whatsapp-btn, [data-pending-link='WhatsApp']", digits ? `https://wa.me/${digits}` : "", "WhatsApp");
       setLinkOrPending("[data-pending-link='Instagram'], a[href*='instagram.com']", business.instagram || "", "Instagram");
       setLinkOrPending("[data-pending-link='Facebook'], a[href*='facebook.com']", business.facebook || "", "Facebook");
@@ -1991,3 +1992,8 @@
   </script>
 </body>
 </html>
+
+
+
+
+
