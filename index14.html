@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montgomery Fashion Design</title>
+  <meta name="description" content="Montgomery Fashion Design ofrece diseño de moda, clases de costura, alta costura y alteraciones finas en Manhattan, New York y Bronx.">
+  <meta name="theme-color" content="#7d1f2d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://montgomeryfashiondesign.com/">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Montgomery Fashion Design">
+  <meta property="og:url" content="https://montgomeryfashiondesign.com/">
+  <meta property="og:description" content="Diseño de moda, clases de costura y alteraciones finas por Sr. Montgomery.">
+  <meta property="og:image" content="https://montgomeryfashiondesign.com/assets/montgomery-fashion-logo.jpg">
+  <meta property="og:image:alt" content="Montgomery Fashion Design logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Montgomery Fashion Design">
+  <meta name="twitter:description" content="Diseño de moda, clases de costura y alteraciones finas por Sr. Montgomery.">
+  <meta name="twitter:image" content="https://montgomeryfashiondesign.com/assets/montgomery-fashion-logo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --ink: #171412;
+      --charcoal: #25201d;
+      --silk: #f6f1ea;
+      --linen: #e9dfd1;
+      --gold: #b88a44;
+      --wine: #7d1f2d;
+      --sage: #6d7964;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(184, 138, 68, 0.18), transparent 28%),
+        linear-gradient(135deg, #111 0%, #29231f 45%, #6b1f2d 100%);
+      color: var(--ink);
+      font-family: "Montserrat", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .card-container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--silk);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (min-width: 460px) {
+      .card-container {
+        max-width: 430px;
+        min-height: calc(100vh - 3rem);
+        margin: 1.5rem auto;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .call-float {
+        left: auto;
+      }
+    }
+
+    .main-bg {
+      position: relative;
+      min-height: 215px;
+      background-image:
+        linear-gradient(180deg, rgba(23, 20, 18, 0.12), rgba(23, 20, 18, 0.72)),
+        url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=85");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .call-float {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) translateX(calc(35% - 3.8px));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      min-width: 44px;
+      min-height: 116px;
+      padding: 1.1rem 0.65rem 1.3rem;
+      touch-action: manipulation;
+      border: none;
+      border-radius: 999px 0 0 999px;
+      color: white;
+      background: #25d366;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32);
+      z-index: 30;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .call-float.peek-out {
+      transform: translateY(-50%) translateX(0);
+      transition: transform 0.45s ease;
+    }
+
+    
+    body.modal-open .call-float {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-50%) translateX(110%);
+      transition: opacity 0.2s ease, transform 0.25s ease;
+    }
+
+    .call-float:hover,
+    .call-float:focus-visible {
+      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.4);
+      outline: none;
+    }
+
+    .call-float i {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .call-float span {
+      writing-mode: vertical-rl;
+      letter-spacing: 0.02em;
+    }
+
+    .settings-float {
+      position: absolute;
+      left: 1.05rem;
+      top: 1.25rem;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      border-radius: 999px;
+      color: white;
+      background: rgba(37, 32, 29, 0.56);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(8px);
+      transition: transform 0.22s ease, background-color 0.22s ease;
+    }
+
+    .settings-float:hover,
+    .settings-float:focus-visible {
+      background: var(--gold);
+      transform: rotate(28deg) scale(1.08);
+      outline: none;
+    }
+
+    @keyframes soft-bounce {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      35% {
+        transform: translateY(-7px) scale(1.08);
+      }
+      65% {
+        transform: translateY(2px) scale(0.98);
+      }
+    }
+
+    .content-section {
+      position: relative;
+      flex: 1;
+      margin-top: -58px;
+      padding: 0 1.35rem 2rem;
+      border-top-left-radius: 46px;
+      border-top-right-radius: 46px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 241, 234, 0.98)),
+        repeating-linear-gradient(90deg, transparent 0 20px, rgba(184, 138, 68, 0.055) 20px 21px);
+    }
+
+    .profile-container {
+      width: 172px;
+      height: 172px;
+      margin: -90px auto 0;
+      position: relative;
+      border-radius: 999px;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--gold), var(--wine), var(--charcoal));
+      box-shadow: 0 24px 44px rgba(37, 32, 29, 0.4), 0 0 0 6px rgba(246, 241, 234, 0.95);
+    }
+
+    .profile-art {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #f6f1ea;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-art i {
+      font-size: 3rem;
+    }
+
+    .profile-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+      display: block;
+    }
+
+    .verification-badge {
+      position: absolute;
+      right: 7px;
+      top: 10px;
+      width: 34px;
+      height: 34px;
+      border: 3px solid var(--silk);
+      border-radius: 999px;
+      background: var(--gold);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .brand-title {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--charcoal);
+      letter-spacing: 0;
+      line-height: 0.95;
+    }
+
+    @media (max-width: 390px) {
+      .brand-title {
+        font-size: 2.8rem !important;
+      }
+    }
+
+    .tagline {
+      color: #5f554e;
+    }
+
+    .language-select {
+      width: 100%;
+      max-width: 315px;
+      margin: 1.1rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.35rem;
+      padding: 0.35rem;
+      border: 1px solid rgba(184, 138, 68, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .language-select button {
+      min-height: 34px;
+      border-radius: 999px;
+      color: #6b5b50;
+      font-size: 0.76rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .language-select button.active {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .action-btn,
+    .social-btn {
+      cursor: pointer;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease;
+    }
+
+    .action-btn {
+      min-height: 50px;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, var(--wine), var(--charcoal));
+      box-shadow: 0 12px 22px rgba(125, 31, 45, 0.22);
+    }
+
+    .action-btn.secondary {
+      background: linear-gradient(135deg, var(--gold), #8c642d);
+      box-shadow: 0 12px 22px rgba(184, 138, 68, 0.25);
+    }
+
+    .action-btn:hover,
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-btn {
+      height: 84px;
+      border: 1px solid rgba(184, 138, 68, 0.28);
+      border-radius: 18px;
+      color: var(--charcoal);
+      background: rgba(255, 255, 255, 0.64);
+      box-shadow: 0 7px 18px rgba(37, 32, 29, 0.08);
+    }
+
+    .social-btn i {
+      color: var(--wine);
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+      border-color: #25d366;
+      box-shadow: 0 10px 22px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-btn i {
+      color: white;
+    }
+
+    .whatsapp-btn:hover,
+    .whatsapp-btn:focus-visible,
+    .whatsapp-btn:active {
+      background: #1cab52;
+      border-color: #1cab52;
+      box-shadow: 0 12px 26px rgba(37, 211, 102, 0.42);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .instagram-btn {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      color: white;
+      border-color: #dd2a7b;
+      box-shadow: 0 10px 22px rgba(221, 42, 123, 0.32);
+    }
+
+    .instagram-btn i {
+      color: white;
+    }
+
+    .instagram-btn:hover,
+    .instagram-btn:focus-visible,
+    .instagram-btn:active {
+      background: linear-gradient(135deg, #d96f1f, #b8205f, #672a8c, #3d44ab);
+      border-color: #b8205f;
+      box-shadow: 0 12px 26px rgba(221, 42, 123, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .facebook-btn {
+      background: #1877f2;
+      color: white;
+      border-color: #1877f2;
+      box-shadow: 0 10px 22px rgba(24, 119, 242, 0.32);
+    }
+
+    .facebook-btn i {
+      color: white;
+    }
+
+    .facebook-btn:hover,
+    .facebook-btn:focus-visible,
+    .facebook-btn:active {
+      background: #0f5cc4;
+      border-color: #0f5cc4;
+      box-shadow: 0 12px 26px rgba(24, 119, 242, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .services-btn {
+      background: var(--gold);
+      color: white;
+      border-color: var(--gold);
+      box-shadow: 0 10px 22px rgba(184, 138, 68, 0.32);
+    }
+
+    .services-btn i {
+      color: #171412;
+    }
+
+    .services-btn:hover,
+    .services-btn:focus-visible,
+    .services-btn:active {
+      background: #8c642d;
+      border-color: #8c642d;
+      box-shadow: 0 12px 26px rgba(184, 138, 68, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .gallery-btn {
+      background: var(--sage);
+      color: white;
+      border-color: var(--sage);
+      box-shadow: 0 10px 22px rgba(109, 121, 100, 0.32);
+    }
+
+    .gallery-btn i {
+      color: white;
+    }
+
+    .gallery-btn:hover,
+    .gallery-btn:focus-visible,
+    .gallery-btn:active {
+      background: #4d5644;
+      border-color: #4d5644;
+      box-shadow: 0 12px 26px rgba(109, 121, 100, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .location-btn {
+      background: #ea4335;
+      color: white;
+      border-color: #ea4335;
+      box-shadow: 0 10px 22px rgba(234, 67, 53, 0.32);
+    }
+
+    .location-btn i {
+      color: white;
+    }
+
+    .location-btn:hover,
+    .location-btn:focus-visible,
+    .location-btn:active {
+      background: #b8392c;
+      border-color: #b8392c;
+      box-shadow: 0 12px 26px rgba(234, 67, 53, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .qr-btn {
+      background: var(--charcoal);
+      color: white;
+      border-color: var(--charcoal);
+      box-shadow: 0 10px 22px rgba(37, 32, 29, 0.32);
+    }
+
+    .qr-btn i {
+      color: white;
+    }
+
+    .qr-btn:hover,
+    .qr-btn:focus-visible,
+    .qr-btn:active {
+      background: #110f0d;
+      border-color: #110f0d;
+      box-shadow: 0 12px 26px rgba(37, 32, 29, 0.5);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    .save-contact-btn {
+      background: var(--wine);
+      color: white;
+      border-color: var(--wine);
+      box-shadow: 0 10px 22px rgba(125, 31, 45, 0.32);
+    }
+
+    .save-contact-btn i {
+      color: white;
+    }
+
+    .save-contact-btn:hover,
+    .save-contact-btn:focus-visible,
+    .save-contact-btn:active {
+      background: #5c1622;
+      border-color: #5c1622;
+      box-shadow: 0 12px 26px rgba(125, 31, 45, 0.46);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+
+    #courses-btn:hover,
+    #courses-btn:focus-visible {
+      background: linear-gradient(135deg, var(--gold), #8c642d);
+      box-shadow: 0 14px 30px rgba(184, 138, 68, 0.4);
+      animation: soft-bounce 0.55s ease;
+      outline: none;
+    }
+
+    #appointment-btn {
+      background-color: #f4efe4;
+      background-image:
+        linear-gradient(rgba(125, 31, 45, 0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 31, 45, 0.22) 1px, transparent 1px);
+      background-size: 10px 10px;
+      color: var(--charcoal);
+      box-shadow: 0 12px 22px rgba(37, 32, 29, 0.18), inset 0 0 0 1px rgba(125, 31, 45, 0.25);
+    }
+
+    #appointment-btn i,
+    #appointment-btn span {
+      color: var(--charcoal);
+    }
+
+    #appointment-btn:hover,
+    #appointment-btn:focus-visible {
+      background-color: #efe7d6;
+      box-shadow: 0 14px 26px rgba(37, 32, 29, 0.26), inset 0 0 0 1px rgba(125, 31, 45, 0.35);
+      outline: none;
+    }
+
+    .scissors-svg-wrap {
+      display: inline-flex;
+      align-items: center;
+      color: var(--charcoal);
+    }
+
+    .scissors-svg-wrap svg {
+      overflow: visible;
+    }
+
+    .scissors-svg-wrap svg .blade {
+      transform-box: view-box;
+      transform-origin: 32px 31px;
+      animation-duration: 1.55s;
+      animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+      animation-iteration-count: infinite;
+    }
+
+    .scissors-svg-wrap svg .blade-left {
+      animation-name: snip-left;
+    }
+
+    .scissors-svg-wrap svg .blade-right {
+      animation-name: snip-right;
+    }
+
+    .scissors-svg-wrap svg .handle {
+      transform-box: view-box;
+      transform-origin: 32px 31px;
+      animation: handle-settle 1.55s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+    }
+
+    @keyframes snip-left {
+      0%, 18%, 100% { transform: rotate(-11deg); }
+      44%, 62% { transform: rotate(8deg); }
+    }
+
+    @keyframes snip-right {
+      0%, 18%, 100% { transform: rotate(11deg); }
+      44%, 62% { transform: rotate(-8deg); }
+    }
+
+    @keyframes handle-settle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(0.8px); }
+    }
+
+    .footer-banner {
+      background: var(--charcoal);
+      color: var(--linen);
+      border-top: 1px solid rgba(184, 138, 68, 0.35);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(23, 20, 18, 0.68);
+      backdrop-filter: blur(7px);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(94vw, 680px);
+      max-height: 88vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: #fffaf2;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    .modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.35rem;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .modal-header-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .modal-close-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      color: white;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 1.35rem;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .admin-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .admin-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .admin-field label {
+      color: #4d433c;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .admin-field input,
+    .admin-field textarea,
+    .admin-field select {
+      width: 100%;
+      border: 1px solid #decbb0;
+      border-radius: 12px;
+      background: white;
+      padding: 0.75rem 0.85rem;
+      color: var(--charcoal);
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .admin-field textarea {
+      min-height: 76px;
+      resize: vertical;
+    }
+
+    .admin-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .admin-actions button,
+    .admin-actions a,
+    .admin-login button {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: white;
+      background: var(--charcoal);
+      font-weight: 800;
+      font-size: 0.82rem;
+    }
+
+    .admin-actions .save-admin {
+      background: var(--wine);
+    }
+
+    .admin-actions .reset-admin {
+      background: #806a55;
+    }
+
+    .admin-login {
+      max-width: 420px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .admin-error {
+      min-height: 1.2rem;
+      color: #b42318;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .admin-grid,
+      .admin-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-item {
+      display: flex;
+      gap: 0.95rem;
+      align-items: flex-start;
+      padding: 0.9rem;
+      border: 1px solid rgba(184, 138, 68, 0.22);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .service-icon {
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--wine), var(--gold));
+    }
+
+    .calendar-day.disabled {
+      color: #c6beb7;
+      cursor: not-allowed;
+      background: #f0ebe5;
+    }
+
+    .calendar-day.today {
+      border: 1px solid var(--gold);
+    }
+
+    .calendar-day.selected,
+    .time-slot.selected {
+      color: white;
+      background: var(--wine);
+    }    .calendar-day:not(.disabled):hover,
+    .time-slot:hover {
+      background: rgba(184, 138, 68, 0.18);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1px solid rgba(184, 138, 68, 0.22);
+      border-radius: 16px;
+      background: #f0e4d4;
+      box-shadow: 0 8px 18px rgba(37, 32, 29, 0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main class="card-container">
+    <section class="main-bg" aria-label="Atelier de moda Montgomery Fashion Design">
+      <button class="settings-float" id="settings-btn" type="button" aria-label="Guardar contacto en el teléfono" onclick="saveContact()">
+        <i class="fa-solid fa-user-plus"></i>
+      </button>
+      <a class="call-float" href="https://wa.me/16318228581" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span data-i18n="callMe">Call me</span>
+      </a>
+    </section>
+
+    <section class="content-section">
+      <div class="text-center">
+        <div class="profile-container" aria-hidden="true">
+          <div class="profile-art">
+            <img class="profile-logo" src="assets/montgomery-fashion-logo.jpg" alt="">
+          </div>
+          <div class="verification-badge">
+            <i class="fas fa-check text-sm"></i>
+          </div>
+        </div>
+
+        <p id="brand-text" class="mt-5 text-xs font-bold uppercase tracking-[0.28em] text-[#7d1f2d]">Montgomery Fashion Design</p>
+        <h1 id="name-text" class="brand-title mt-1 text-[3.1rem] font-bold cursor-default select-none" data-i18n="name">Sr. Montgomery</h1>
+        <p class="mt-2 text-base font-semibold text-[#6d7964]" data-i18n="role">Fashion designer and tailoring instructor</p>
+        <p class="tagline mx-auto mt-4 max-w-[350px] text-sm leading-6" data-i18n="tagline">Over 35 years training students and dressing clients with excellence.</p>
+
+        <div class="language-select" aria-label="Language selector">
+          <button type="button" data-lang-btn="en" aria-label="English" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="es" aria-label="Español" aria-pressed="false">ES</button>
+          <button type="button" data-lang-btn="fr" aria-label="Français" aria-pressed="false">FR</button>
+          <button type="button" data-lang-btn="it" aria-label="Italiano" aria-pressed="false">IT</button>
+        </div>
+
+        <div class="mt-7 grid grid-cols-2 gap-3">
+          <button id="courses-btn" class="action-btn relative flex items-center px-3 py-3 text-sm font-bold overflow-visible" type="button" aria-label="Ver cursos de moda">
+            <span class="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(145deg, #e7c66c, #c9a043, #ad853d); box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,235,179,0.8);">
+              <i class="fa-solid fa-graduation-cap text-2xl" style="color: #171412; text-shadow: 0 1px 1px rgba(255,255,255,0.5);"></i>
+            </span>
+            <span class="w-full text-center" data-i18n="courses">Courses</span>
+          </button>
+          <button id="appointment-btn" class="action-btn secondary flex items-center justify-center gap-2 px-3 py-3 text-sm font-bold" type="button" aria-label="Solicitar cita para estudiantes">
+            <span class="scissors-svg-wrap">
+              <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g class="handle">
+                  <circle cx="16" cy="46" r="7" fill="none" stroke="currentColor" stroke-width="5"/>
+                  <circle cx="48" cy="46" r="7" fill="none" stroke="currentColor" stroke-width="5"/>
+                  <line x1="21" y1="41" x2="32" y2="31" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="43" y1="41" x2="32" y2="31" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                </g>
+                <g class="blade blade-left">
+                  <path d="M32 31 L54 10" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                </g>
+                <g class="blade blade-right">
+                  <path d="M32 31 L10 10" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                </g>
+                <circle cx="32" cy="31" r="3.8" fill="#f4efe4" stroke="currentColor" stroke-width="3"/>
+              </svg>
+            </span>
+            <span data-i18n="book">Estudiantes</span>
+          </button>
+        </div>
+
+        <p class="mt-7 text-xs font-semibold uppercase tracking-[0.18em] text-[#8c7c70]" data-i18n="tapHint">Tap an option</p>
+
+        <div class="mt-4 grid grid-cols-4 gap-3">
+          <button id="services-btn" class="social-btn services-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Ver servicios y alteraciones">
+            <span class="relative flex h-7 w-9 items-center justify-center" aria-hidden="true">
+              <i class="fa-solid fa-shirt text-2xl"></i>
+              <i class="fa-solid fa-ruler-combined absolute -right-1 -bottom-1 text-sm text-[#7d1f2d]"></i>
+            </span>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight" data-i18n="services">Alterations</span>
+          </button>
+          <button id="gallery-btn" class="social-btn gallery-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Ver galería de trabajos">
+            <i class="fas fa-images text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight" data-i18n="gallery">Gallery</span>
+          </button>
+          <a href="https://maps.google.com/?q=Manhattan%20New%20York" target="_blank" rel="noopener noreferrer" class="social-btn location-btn flex flex-col items-center justify-center px-1">
+            <i class="fas fa-map-marker-alt text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight" data-i18n="location">Location</span>
+          </a>
+          <button id="qr-code-btn" class="social-btn qr-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Mostrar código QR">
+            <i class="fas fa-qrcode text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight" data-i18n="qr">QR Code</span>
+          </button>
+          <button data-pending-link="Instagram" class="social-btn instagram-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Abrir Instagram">
+            <i class="fab fa-instagram text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight">Instagram</span>
+          </button>
+          <button data-pending-link="Facebook" class="social-btn facebook-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Abrir Facebook">
+            <i class="fab fa-facebook-f text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight">Facebook</span>
+          </button>
+          <a href="https://wa.me/16318228581" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn flex flex-col items-center justify-center px-1">
+            <i class="fab fa-whatsapp text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight">WhatsApp</span>
+          </a>
+          <button id="save-contact-btn" class="social-btn save-contact-btn flex flex-col items-center justify-center px-1" type="button" aria-label="Guardar contacto">
+            <i class="fas fa-address-card text-2xl"></i>
+            <span class="mt-2 text-[0.68rem] font-bold leading-tight" data-i18n="save">Save</span>
+          </button>
+        </div>
+
+        <p class="mt-7 text-sm font-semibold text-[#7d1f2d]" data-i18n="install">
+          Add this card to your phone
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer-banner px-5 py-4 text-center">
+      <p class="text-sm font-semibold" data-i18n="footer">Designed for garments with presence, fit, and character.</p>
+    </footer>
+  </main>
+
+  <div id="services-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="servicesTitle">Signature Services</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Servicios -->
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-ruler-combined"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="svcCustomTitle">Custom design</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="svcCustomText">Garments created from the first idea to the final fitting.</p>
+            </div>
+          </article>
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-person-dress"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="svcWomenTitle">Women couture</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="svcWomenText">Elegant pieces for events, evening wear, and refined personal style.</p>
+            </div>
+          </article>
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-user-tie"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="svcMenTitle">Men couture</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="svcMenText">High-end garments with structure, proportion, and sharp finishing.</p>
+            </div>
+          </article>
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="svcAdviceTitle">Design advice</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="svcAdviceText">Guidance on silhouette, fabric, details, and personal image.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Divisor Alteraciones -->
+        <div class="mt-6 mb-4 flex items-center gap-3">
+          <div class="h-px flex-1 bg-[#e4d4bd]"></div>
+          <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#b88a44]">
+            <i class="fa-solid fa-scissors"></i>
+            <span data-i18n="alterationsTitle">Alterations</span>
+          </span>
+          <div class="h-px flex-1 bg-[#e4d4bd]"></div>
+        </div>
+
+        <div class="space-y-3 text-[#5f554e]">
+          <p class="text-sm leading-6" data-i18n="alterationsIntro">Refined alterations focused on fit, line, and elegance for garments that deserve careful work.</p>
+          <div class="rounded-2xl border border-[#e4d4bd] bg-white/70 p-4">
+            <p class="font-bold text-[#25201d]" data-i18n="availableAlterations">Available alterations</p>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><i class="fa-solid fa-check mr-2 text-[#b88a44]"></i><span data-i18n="altFit">Fit adjustments and garment refinement</span></li>
+              <li><i class="fa-solid fa-check mr-2 text-[#b88a44]"></i><span data-i18n="altHighEnd">High-end alterations for women and men</span></li>
+              <li><i class="fa-solid fa-check mr-2 text-[#b88a44]"></i><span data-i18n="altHome">At-home service by appointment</span></li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-[#ead2d7] bg-[#fff5f6] p-4">
+            <p class="font-bold text-[#7d1f2d]" data-i18n="notOfferedTitle">Not offered</p>
+            <p class="mt-1 text-sm" data-i18n="notOfferedText">Zipper replacement and quick repair work are not part of this service.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="courses-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="coursesTitle">Fashion Courses</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-cols-1 gap-3">
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-seedling"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="beginnerTitle">Beginner level</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="beginnerText">Foundations of sewing, garment construction, tools, measurements, and practice.</p>
+            </div>
+          </article>
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="advancedTitle">Advanced level</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="advancedText">Pattern development, refined finishes, couture techniques, and personal projects.</p>
+            </div>
+          </article>
+          <article class="service-item">
+            <span class="service-icon"><i class="fa-solid fa-house-user"></i></span>
+            <div>
+              <h3 class="font-bold text-[#25201d]" data-i18n="homeCourseTitle">At-home classes</h3>
+              <p class="mt-1 text-sm leading-5 text-[#6f6257]" data-i18n="homeCourseText">Private instruction at home, scheduled by availability in Manhattan and nearby areas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="gallery-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="galleryTitle">Gallery</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-4 text-sm leading-6 text-[#6f6257]" data-i18n="galleryText">A selection of garments, details, and atelier work.</p>
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="install-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="installTitle">Keep This Card</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-[#e4d4bd] bg-white/70 p-4">
+            <h3 class="font-bold text-[#25201d]"><i class="fab fa-apple mr-2"></i>iPhone</h3>
+            <ol class="mt-3 list-inside list-decimal space-y-2 text-sm text-[#6f6257]">
+              <li data-i18n="ios1">Open it in Safari.</li>
+              <li data-i18n="ios2">Tap Share.</li>
+              <li data-i18n="ios3">Choose Add to Home Screen.</li>
+            </ol>
+          </div>
+          <div class="rounded-2xl border border-[#e4d4bd] bg-white/70 p-4">
+            <h3 class="font-bold text-[#25201d]"><i class="fab fa-android mr-2"></i>Android</h3>
+            <ol class="mt-3 list-inside list-decimal space-y-2 text-sm text-[#6f6257]">
+              <li data-i18n="android1">Open it in Chrome.</li>
+              <li data-i18n="android2">Tap the three-dot menu.</li>
+              <li data-i18n="android3">Choose Add to Home Screen.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="qr-code-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="qrTitle">Scan to Save</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="mb-4 text-sm leading-6 text-[#6f6257]" data-i18n="qrText">This QR code saves the contact information for Sr. Montgomery.</p>
+        <div class="mx-auto flex w-fit justify-center rounded-2xl border border-[#e4d4bd] bg-white p-3">
+          <img id="qr-image" src="" alt="Montgomery Fashion Design QR code" class="h-[210px] w-[210px] rounded-xl">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="appointment-modal" class="modal-overlay">
+    <div class="modal-content"></div>
+  </div>
+
+  <div id="pending-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title" data-i18n="pendingTitle">Link Pending</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-[#5f554e]" data-i18n="pendingText">This link is ready to be connected when you provide the final contact information.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="admin-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-header-title">Administrador</h2>
+        <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="admin-login" class="admin-login">
+          <p class="text-center text-sm leading-6 text-[#6f6257]">Ingresa la clave para modificar la tarjeta.</p>
+          <input id="admin-password" type="password" placeholder="Clave de administrador" autocomplete="current-password">
+          <button id="admin-unlock-btn" type="button">Entrar</button>
+          <p id="admin-error" class="admin-error"></p>
+        </div>
+
+        <form id="admin-panel" class="hidden">
+          <div class="admin-grid">
+            <div class="admin-field">
+              <label for="admin-name">Nombre</label>
+              <input id="admin-name" name="name" type="text">
+            </div>
+            <div class="admin-field">
+              <label for="admin-brand">Marca</label>
+              <input id="admin-brand" name="brand" type="text">
+            </div>
+            <div class="admin-field">
+              <label for="admin-phone">Telefono visible</label>
+              <input id="admin-phone" name="phone" type="text">
+            </div>
+            <div class="admin-field">
+              <label for="admin-whatsapp">WhatsApp internacional</label>
+              <input id="admin-whatsapp" name="whatsapp" type="text">
+            </div>
+            <div class="admin-field full">
+              <label for="admin-location">Ubicacion</label>
+              <input id="admin-location" name="location" type="text">
+            </div>
+            <div class="admin-field full">
+              <label for="admin-profile">Imagen de perfil JPG/PNG</label>
+              <div style="display:flex;gap:0.5rem;align-items:center;">
+                <input id="admin-profile" name="profileImage" type="url" style="flex:1;">
+                <a href="https://imgbb.com/upload" target="_blank" rel="noopener noreferrer" title="Subir imagen a ImgBB" style="flex-shrink:0;display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.85rem;border-radius:999px;background:linear-gradient(135deg,#b88a44,#8c642d);color:white;font-size:0.75rem;font-weight:800;white-space:nowrap;text-decoration:none;">
+                  <i class="fas fa-upload"></i> Subir
+                </a>
+              </div>
+            </div>
+            <div class="admin-field full">
+              <label for="admin-image-page">Enlace para modificar imagen</label>
+              <input id="admin-image-page" name="imageEditPage" type="url">
+            </div>
+            <div class="admin-field full">
+              <label for="admin-hero">Imagen de portada (hero)</label>
+              <div style="display:flex;gap:0.5rem;align-items:center;">
+                <input id="admin-hero" name="heroImage" type="url" style="flex:1;">
+                <a href="https://imgbb.com/upload" target="_blank" rel="noopener noreferrer" title="Subir imagen a ImgBB" style="flex-shrink:0;display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.85rem;border-radius:999px;background:linear-gradient(135deg,#b88a44,#8c642d);color:white;font-size:0.75rem;font-weight:800;white-space:nowrap;text-decoration:none;">
+                  <i class="fas fa-upload"></i> Subir
+                </a>
+              </div>
+            </div>
+            <div class="admin-field">
+              <label for="admin-instagram">Instagram</label>
+              <input id="admin-instagram" name="instagram" type="url">
+            </div>
+            <div class="admin-field">
+              <label for="admin-facebook">Facebook</label>
+              <input id="admin-facebook" name="facebook" type="url">
+            </div>
+            <div class="admin-field">
+              <label for="admin-lang-edit">Idioma a editar</label>
+              <select id="admin-lang-edit">
+                <option value="en">English</option>
+                <option value="es">Espanol</option>
+                <option value="fr">Francais</option>
+                <option value="it">Italiano</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="admin-role">Profesion</label>
+              <input id="admin-role" type="text">
+            </div>
+            <div class="admin-field full">
+              <label for="admin-tagline">Frase principal</label>
+              <textarea id="admin-tagline"></textarea>
+            </div>
+            <div class="admin-field full">
+              <label for="admin-footer">Frase inferior</label>
+              <textarea id="admin-footer"></textarea>
+            </div>
+            <div class="admin-field full">
+              <label>Imágenes de galería (URLs separadas por coma)</label>
+              <div style="display:flex;gap:0.5rem;align-items:flex-start;">
+                <textarea id="admin-gallery" name="gallery" placeholder="https://i.ibb.co/..., https://i.ibb.co/..." style="flex:1;min-height:64px;"></textarea>
+                <a href="https://imgbb.com/upload" target="_blank" rel="noopener noreferrer" title="Subir imagen a ImgBB" style="flex-shrink:0;display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.85rem;border-radius:999px;background:linear-gradient(135deg,#b88a44,#8c642d);color:white;font-size:0.75rem;font-weight:800;white-space:nowrap;text-decoration:none;margin-top:0.1rem;">
+                  <i class="fas fa-upload"></i> Subir
+                </a>
+              </div>
+              <p style="font-size:0.7rem;color:#8c7c70;margin-top:0.3rem;">Sube la imagen en ImgBB, copia el enlace "Direct link" y pégalo aquí.</p>
+            </div>
+            <div class="admin-field full">
+              <label for="admin-custom-css">CSS personalizado avanzado</label>
+              <textarea id="admin-custom-css" name="customCss" placeholder=".brand-title { color: #000; }"></textarea>
+            </div>
+          </div>
+
+          <div class="admin-actions">
+            <button class="save-admin" id="admin-save-btn" type="submit">Guardar</button>
+            <button class="reset-admin" id="admin-reset-btn" type="button">Restaurar</button>
+            <a id="admin-image-link" href="https://ibb.co/C3nRYx9Z" target="_blank" rel="noopener noreferrer">Abrir imagen</a>
+          </div>
+          <p id="admin-status" class="mt-3 text-center text-sm font-bold text-[#6d7964]"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Nota: este panel admin corre en una página estática; la clave no debe considerarse segura si se publica en internet.
+    // Para una web pública, mueve la edición a un backend o elimina el panel admin del archivo publicado.
+    const ADMIN_PASSWORD = "Kilo9coco";
+    const STORAGE_KEY = "montgomeryFashionDesignConfig";
+    const defaultConfig = {
+      name: "Sr. Montgomery",
+      brand: "Montgomery Fashion Design",
+      phone: "+1 (631) 822-8581",
+      whatsapp: "+16318228581",
+      email: "",
+      location: "Manhattan, New York, Bronx",
+      profileImage: "assets/montgomery-fashion-logo.jpg",
+      imageEditPage: "https://ibb.co/C3nRYx9Z",
+      heroImage: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=85",
+      instagram: "https://www.instagram.com/josmonlave/",
+      facebook: "",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85",
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
+        "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85"
+      ],
+      customCss: "",
+      textOverrides: {
+        en: {},
+        es: {},
+        fr: {},
+        it: {}
+      }
+    };
+    let business = loadConfig();
+
+    const translations = {
+      en: {
+        name: "Mr. Montgomery",
+        role: "Fashion designer and tailoring instructor",
+        tagline: "Over 35 years training students and dressing clients with excellence.",
+        courses: "Courses",
+        book: "Students",
+        tapHint: "Tap an option",
+        services: "Alterations",
+        gallery: "Gallery",
+        callMe: "Call me",
+        galleryTitle: "Gallery",
+        galleryText: "A selection of garments, details, and atelier work.",
+        galleryEmpty: "Add gallery image links from the admin panel.",
+        alterations: "Alterations",
+        location: "Location",
+        qr: "QR Code",
+        save: "Save",
+        install: "Manhattan, New York, Bronx",
+        footer: "Design and alterations for those who demand perfection.",
+        servicesTitle: "Signature Services",
+        svcCustomTitle: "Custom design",
+        svcCustomText: "Garments created from the first idea to the final fitting.",
+        svcWomenTitle: "Women couture",
+        svcWomenText: "Elegant pieces for events, evening wear, and refined personal style.",
+        svcMenTitle: "Men couture",
+        svcMenText: "High-end garments with structure, proportion, and sharp finishing.",
+        svcAdviceTitle: "Design advice",
+        svcAdviceText: "Guidance on silhouette, fabric, details, and personal image.",
+        alterationsTitle: "Alterations",
+        alterationsIntro: "Refined alterations focused on fit, line, and elegance for garments that deserve careful work.",
+        availableAlterations: "Available alterations",
+        altFit: "Fit adjustments and garment refinement",
+        altHighEnd: "High-end alterations for women and men",
+        altHome: "At-home service by appointment",
+        notOfferedTitle: "Not offered",
+        notOfferedText: "Zipper replacement and quick repair work are not part of this service.",
+        coursesTitle: "Fashion Courses",
+        beginnerTitle: "Beginner level",
+        beginnerText: "Foundations of sewing, garment construction, tools, measurements, and practice.",
+        advancedTitle: "Advanced level",
+        advancedText: "Pattern development, refined finishes, couture techniques, and personal projects.",
+        homeCourseTitle: "At-home classes",
+        homeCourseText: "Private instruction at home, scheduled by availability in Manhattan, the Bronx, and nearby areas.",
+        installTitle: "Keep This Card",
+        ios1: "Open it in Safari.",
+        ios2: "Tap Share.",
+        ios3: "Choose Add to Home Screen.",
+        android1: "Open it in Chrome.",
+        android2: "Tap the three-dot menu.",
+        android3: "Choose Add to Home Screen.",
+        qrTitle: "Scan to Save",
+        qrText: "This QR code saves the contact information for Sr. Montgomery.",
+        pendingTitle: "Link Pending",
+        pendingText: "This link is ready to be connected when you provide the final contact information.",
+        appointmentTitle: "Select a Date",
+        appointmentTimeTitle: "Select a Time",
+        backCalendar: "Back to calendar",
+        confirm: "Confirm Request",
+        confirmed: "Request Prepared",
+        confirmedText: "Your preferred appointment time is",
+        pendingContact: "Phone or WhatsApp will be connected when the final number is added.",
+        noTimes: "No times available.",
+        days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+      },
+      es: {
+        name: "Sr. Montgomery",
+        role: "Diseñador de moda y profesor de costura",
+        tagline: "Con más de 35 años formando estudiantes y vistiendo clientes de excelencia.",
+        courses: "Cursos",
+        book: "Estudiantes",
+        tapHint: "Toca una opción",
+        services: "Alteraciones",
+        gallery: "Galería",
+        callMe: "WhatsApp",
+        galleryTitle: "Galería",
+        galleryText: "Una selección de prendas, detalles y trabajos del taller.",
+        galleryEmpty: "Agrega enlaces de imágenes desde el panel administrador.",
+        alterations: "Alteraciones",
+        location: "Ubicación",
+        qr: "Código QR",
+        save: "Guardar",
+        install: "Manhattan, New York, Bronx",
+        footer: "Diseño y alteraciones para quienes exigen perfección.",
+        servicesTitle: "Servicios principales",
+        svcCustomTitle: "Diseño a medida",
+        svcCustomText: "Prendas creadas desde la primera idea hasta la prueba final.",
+        svcWomenTitle: "Alta costura femenina",
+        svcWomenText: "Piezas elegantes para eventos, noche y estilo personal refinado.",
+        svcMenTitle: "Alta costura masculina",
+        svcMenText: "Prendas de alta gama con estructura, proporción y acabados finos.",
+        svcAdviceTitle: "Asesoría de diseño",
+        svcAdviceText: "Orientación en silueta, telas, detalles e imagen personal.",
+        alterationsTitle: "Alteraciones",
+        alterationsIntro: "Alteraciones finas enfocadas en ajuste, línea y elegancia para prendas que merecen trabajo cuidadoso.",
+        availableAlterations: "Alteraciones disponibles",
+        altFit: "Ajustes de entalle y refinamiento de prendas",
+        altHighEnd: "Alteraciones de alta gama para mujeres y hombres",
+        altHome: "Servicio a domicilio con cita previa",
+        notOfferedTitle: "No se ofrece",
+        notOfferedText: "El cambio de cremalleras y reparaciones rápidas no forman parte de este servicio.",
+        coursesTitle: "Cursos de costura y moda",
+        beginnerTitle: "Nivel principiante",
+        beginnerText: "Bases de costura, construcción de prendas, herramientas, medidas y práctica.",
+        advancedTitle: "Nivel avanzado",
+        advancedText: "Desarrollo de patrones, acabados finos, técnicas de alta costura y proyectos personales.",
+        homeCourseTitle: "Cursos a domicilio",
+        homeCourseText: "Clases privadas a domicilio, según disponibilidad en Manhattan, el Bronx y zonas cercanas.",
+        installTitle: "Lleva esta tarjeta contigo",
+        ios1: "Ábrela en Safari.",
+        ios2: "Toca Compartir.",
+        ios3: "Elige Agregar a pantalla de inicio.",
+        android1: "Ábrela en Chrome.",
+        android2: "Toca el menú de tres puntos.",
+        android3: "Elige Agregar a pantalla principal.",
+        qrTitle: "Escanea para guardar",
+        qrText: "Este código QR guarda la información de contacto del Sr. Montgomery.",
+        pendingTitle: "Enlace pendiente",
+        pendingText: "Este enlace queda listo para conectarlo cuando me pases la información final de contacto.",
+        appointmentTitle: "Seleccione su fecha de clase",
+        appointmentTimeTitle: "Selecciona una hora",
+        backCalendar: "Volver al calendario",
+        confirm: "Confirmar solicitud",
+        confirmed: "Solicitud preparada",
+        confirmedText: "Tu horario preferido es",
+        pendingContact: "El teléfono o WhatsApp se conectará cuando agreguemos el número final.",
+        noTimes: "No hay horarios disponibles.",
+        days: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"]
+      },
+      fr: {
+        name: "M. Montgomery",
+        role: "Créateur de mode et professeur de couture",
+        tagline: "Plus de 35 ans à former des étudiants et à habiller des clients d'excellence.",
+        courses: "Cours",
+        book: "Étudiants",
+        tapHint: "Touchez une option",
+        services: "Retouches",
+        gallery: "Galerie",
+        callMe: "WhatsApp",
+        galleryTitle: "Galerie",
+        galleryText: "Une sélection de vêtements, de détails et de travaux d'atelier.",
+        galleryEmpty: "Ajoutez des liens d'images depuis le panneau administrateur.",
+        alterations: "Retouches",
+        location: "Adresse",
+        qr: "QR Code",
+        save: "Enregistrer",
+        install: "Manhattan, New York, Bronx",
+        footer: "Création et retouches pour ceux qui exigent la perfection.",
+        servicesTitle: "Services signature",
+        svcCustomTitle: "Création sur mesure",
+        svcCustomText: "Vêtements créés de la première idée au dernier essayage.",
+        svcWomenTitle: "Couture femme",
+        svcWomenText: "Pièces élégantes pour événements, soirées et style personnel raffiné.",
+        svcMenTitle: "Couture homme",
+        svcMenText: "Vêtements haut de gamme avec structure, proportion et finitions nettes.",
+        svcAdviceTitle: "Conseil en design",
+        svcAdviceText: "Conseils sur silhouette, tissu, détails et image personnelle.",
+        alterationsTitle: "Retouches",
+        alterationsIntro: "Retouches raffinées axées sur la coupe, la ligne et l'élégance.",
+        availableAlterations: "Retouches disponibles",
+        altFit: "Ajustements de coupe et raffinement du vêtement",
+        altHighEnd: "Retouches haut de gamme pour femmes et hommes",
+        altHome: "Service à domicile sur rendez-vous",
+        notOfferedTitle: "Non proposé",
+        notOfferedText: "Le remplacement de fermetures éclair et les réparations rapides ne font pas partie de ce service.",
+        coursesTitle: "Cours de mode",
+        beginnerTitle: "Niveau débutant",
+        beginnerText: "Bases de couture, construction du vêtement, outils, mesures et pratique.",
+        advancedTitle: "Niveau avancé",
+        advancedText: "Développement de patrons, finitions raffinées, techniques couture et projets personnels.",
+        homeCourseTitle: "Cours à domicile",
+        homeCourseText: "Cours privés à domicile, selon disponibilité à Manhattan, dans le Bronx et environs.",
+        installTitle: "Gardez cette carte",
+        ios1: "Ouvrez-la dans Safari.",
+        ios2: "Touchez Partager.",
+        ios3: "Choisissez Ajouter à l'écran d'accueil.",
+        android1: "Ouvrez-la dans Chrome.",
+        android2: "Touchez le menu à trois points.",
+        android3: "Choisissez Ajouter à l'écran d'accueil.",
+        qrTitle: "Scanner pour sauvegarder",
+        qrText: "Ce QR code enregistre les coordonnées de Sr. Montgomery.",
+        pendingTitle: "Lien en attente",
+        pendingText: "Ce lien sera connecté lorsque les informations finales seront disponibles.",
+        appointmentTitle: "Choisir une date",
+        appointmentTimeTitle: "Choisir une heure",
+        backCalendar: "Retour au calendrier",
+        confirm: "Confirmer la demande",
+        confirmed: "Demande préparée",
+        confirmedText: "Votre horaire préféré est",
+        pendingContact: "Le téléphone ou WhatsApp sera connecté lorsque le numéro final sera ajouté.",
+        noTimes: "Aucun horaire disponible.",
+        days: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
+      },
+      it: {
+        name: "Sig. Montgomery",
+        role: "Designer di moda e insegnante di sartoria",
+        tagline: "Oltre 35 anni a formare studenti e vestire clienti di eccellenza.",
+        courses: "Corsi",
+        book: "Studenti",
+        tapHint: "Tocca un'opzione",
+        services: "Alterazioni",
+        gallery: "Galleria",
+        callMe: "WhatsApp",
+        galleryTitle: "Galleria",
+        galleryText: "Una selezione di capi, dettagli e lavori di atelier.",
+        galleryEmpty: "Aggiungi link alle immagini dal pannello amministratore.",
+        alterations: "Modifiche",
+        location: "Posizione",
+        qr: "Codice QR",
+        save: "Salva",
+        install: "Manhattan, New York, Bronx",
+        footer: "Design e modifiche per chi esige la perfezione.",
+        servicesTitle: "Servizi principali",
+        svcCustomTitle: "Design su misura",
+        svcCustomText: "Capi creati dalla prima idea alla prova finale.",
+        svcWomenTitle: "Alta moda donna",
+        svcWomenText: "Capi eleganti per eventi, sera e stile personale raffinato.",
+        svcMenTitle: "Alta moda uomo",
+        svcMenText: "Capi di alta gamma con struttura, proporzione e finiture precise.",
+        svcAdviceTitle: "Consulenza di design",
+        svcAdviceText: "Guida su silhouette, tessuti, dettagli e immagine personale.",
+        alterationsTitle: "Modifiche",
+        alterationsIntro: "Modifiche raffinate focalizzate su vestibilità, linea ed eleganza.",
+        availableAlterations: "Modifiche disponibili",
+        altFit: "Regolazioni di vestibilità e rifinitura del capo",
+        altHighEnd: "Modifiche di alta gamma per donna e uomo",
+        altHome: "Servizio a domicilio su appuntamento",
+        notOfferedTitle: "Non offerto",
+        notOfferedText: "Sostituzione di cerniere e riparazioni rapide non fanno parte del servizio.",
+        coursesTitle: "Corsi di moda",
+        beginnerTitle: "Livello principiante",
+        beginnerText: "Basi di cucito, costruzione del capo, strumenti, misure e pratica.",
+        advancedTitle: "Livello avanzato",
+        advancedText: "Sviluppo cartamodelli, finiture raffinate, tecniche couture e progetti personali.",
+        homeCourseTitle: "Lezioni a domicilio",
+        homeCourseText: "Lezioni private a domicilio, secondo disponibilità a Manhattan, nel Bronx e zone vicine.",
+        installTitle: "Conserva questa scheda",
+        ios1: "Aprila in Safari.",
+        ios2: "Tocca Condividi.",
+        ios3: "Scegli Aggiungi alla schermata Home.",
+        android1: "Aprila in Chrome.",
+        android2: "Tocca il menu con tre punti.",
+        android3: "Scegli Aggiungi alla schermata Home.",
+        qrTitle: "Scansiona per salvare",
+        qrText: "Questo codice QR salva le informazioni di contatto di Sr. Montgomery.",
+        pendingTitle: "Link in sospeso",
+        pendingText: "Questo link sarà collegato quando saranno disponibili le informazioni finali.",
+        appointmentTitle: "Seleziona una data",
+        appointmentTimeTitle: "Seleziona un'ora",
+        backCalendar: "Torna al calendario",
+        confirm: "Conferma richiesta",
+        confirmed: "Richiesta preparata",
+        confirmedText: "L'orario preferito è",
+        pendingContact: "Telefono o WhatsApp saranno collegati quando verrà aggiunto il numero finale.",
+        noTimes: "Nessun orario disponibile.",
+        days: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]
+      }
+    };
+
+    let lang = detectLanguage();
+    let currentDate = new Date();
+    let selectedDate = null;
+    let selectedTime = null;
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => document.querySelectorAll(selector);
+    const t = (key) => {
+      const overrides = business.textOverrides && business.textOverrides[lang] ? business.textOverrides[lang] : {};
+      return overrides[key] || translations[lang][key] || translations.en[key] || key;
+    };
+
+    function loadConfig() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (!stored) return structuredClone(defaultConfig);
+        return {
+          ...structuredClone(defaultConfig),
+          ...stored,
+          textOverrides: {
+            en: {},
+            es: {},
+            fr: {},
+            it: {},
+            ...(stored.textOverrides || {})
+          }
+        };
+      } catch (error) {
+        return structuredClone(defaultConfig);
+      }
+    }
+
+    function saveConfig() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(business));
+    }
+
+    function phoneDigits(value) {
+      return String(value || "").replace(/[^\d]/g, "");
+    }
+
+    function setLinkOrPending(selector, url, pendingName) {
+      const current = document.querySelector(selector);
+      if (!current) return;
+      const nextTag = url ? "a" : "button";
+      const next = document.createElement(nextTag);
+      next.className = current.className;
+      next.innerHTML = current.innerHTML;
+      if (url) {
+        next.href = url;
+        next.target = "_blank";
+        next.rel = "noopener noreferrer";
+        next.removeAttribute("data-pending-link");
+      } else {
+        next.type = "button";
+        next.dataset.pendingLink = pendingName;
+        next.addEventListener("click", () => openModal("pending-modal"));
+      }
+      current.replaceWith(next);
+    }
+
+    function applyBusinessConfig() {
+      document.title = business.brand || "Montgomery Fashion Design";
+      $("#brand-text").textContent = business.brand || "";
+      $(".profile-logo").src = business.profileImage || defaultConfig.profileImage;
+      $(".main-bg").style.backgroundImage = `linear-gradient(180deg, rgba(23, 20, 18, 0.12), rgba(23, 20, 18, 0.72)), url("${business.heroImage || defaultConfig.heroImage}")`;
+
+      const digits = phoneDigits(business.whatsapp || business.phone);
+      const call = $(".call-float");
+      if (call) call.href = digits ? `https://wa.me/${digits}` : "#";
+      setLinkOrPending(".whatsapp-btn, [data-pending-link='WhatsApp']", digits ? `https://wa.me/${digits}` : "", "WhatsApp");
+      setLinkOrPending("[data-pending-link='Instagram'], a[href*='instagram.com']", business.instagram || "", "Instagram");
+      setLinkOrPending("[data-pending-link='Facebook'], a[href*='facebook.com']", business.facebook || "", "Facebook");
+
+      const mapLink = document.querySelector("a[href*='maps.google.com']");
+      if (mapLink) mapLink.href = `https://maps.google.com/?q=${encodeURIComponent(business.location || "")}`;
+      $("#admin-image-link").href = business.imageEditPage || defaultConfig.imageEditPage;
+
+      let customStyle = $("#custom-admin-css");
+      if (!customStyle) {
+        customStyle = document.createElement("style");
+        customStyle.id = "custom-admin-css";
+        document.head.appendChild(customStyle);
+      }
+      customStyle.textContent = business.customCss || "";
+      renderGallery();
+      buildQrCode();
+    }
+
+    function detectLanguage() {
+      const detected = (navigator.languages && navigator.languages[0] ? navigator.languages[0] : navigator.language || "en").toLowerCase();
+      if (detected.startsWith("es")) return "es";
+      if (detected.startsWith("fr")) return "fr";
+      if (detected.startsWith("it")) return "it";
+      return "en";
+    }
+
+    function applyLanguage(nextLang) {
+      lang = nextLang;
+      document.documentElement.lang = lang;
+      $$("[data-i18n]").forEach((el) => {
+        el.textContent = t(el.dataset.i18n);
+      });
+      $$("[data-lang-btn]").forEach((button) => {
+        const isActive = button.dataset.langBtn === lang;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+      fillAdminLanguageFields();
+      buildQrCode();
+    }
+
+    function syncFloatingCallVisibility() {
+      document.body.classList.toggle("modal-open", Boolean(document.querySelector(".modal-overlay.active")));
+    }
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add("active");
+        syncFloatingCallVisibility();
+      }
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("active");
+      syncFloatingCallVisibility();
+    }
+
+    function normalizeGalleryImages(value) {
+      if (Array.isArray(value)) return value.map((item) => String(item).trim()).filter(Boolean);
+      return String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    }
+
+    function renderGallery() {
+      const grid = $("#gallery-grid");
+      if (!grid) return;
+      const images = normalizeGalleryImages(business.galleryImages);
+      grid.innerHTML = "";
+      if (!images.length) {
+        const empty = document.createElement("p");
+        empty.className = "col-span-full text-center text-sm text-[#6f6257]";
+        empty.textContent = t("galleryEmpty");
+        grid.appendChild(empty);
+        return;
+      }
+      images.forEach((src, index) => {
+        const figure = document.createElement("figure");
+        figure.className = "gallery-item";
+        const image = document.createElement("img");
+        image.src = src;
+        image.alt = `${business.brand || "Montgomery Fashion Design"} gallery image ${index + 1}`;
+        image.loading = "lazy";
+        figure.appendChild(image);
+        grid.appendChild(figure);
+      });
+    }
+
+    function buildVCard() {
+      const lines = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `FN:${business.name}`,
+        `ORG:${business.brand}`,
+        `TITLE:${t("role")}`,
+        `ADR;TYPE=WORK:;;${business.location};;;;`,
+        "END:VCARD"
+      ];
+      if (business.phone) lines.splice(4, 0, `TEL;TYPE=WORK,VOICE:${business.phone}`);
+      if (business.email) lines.splice(5, 0, `EMAIL:${business.email}`);
+      return lines.join("\n");
+    }
+
+    function buildQrCode() {
+      const qr = document.getElementById("qr-image");
+      if (!qr) return;
+      qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(buildVCard());
+    }
+
+    function saveContact() {
+      const blob = new Blob([buildVCard()], { type: "text/vcard;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Montgomery-Fashion-Design.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function openAppointmentModal() {
+      const content = $("#appointment-modal .modal-content");
+      content.innerHTML = `
+        <div class="modal-header">
+          <h2 id="appointment-title" class="modal-header-title">${t("appointmentTitle")}</h2>
+          <button class="modal-close-btn" type="button" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="calendar-view">
+            <div class="mb-4 flex items-center justify-between">
+              <button id="prev-month-btn" class="h-10 w-10 rounded-full text-2xl text-[#5f554e] hover:bg-[#f0e4d4]" type="button">&larr;</button>
+              <h3 id="month-year" class="text-center text-lg font-bold text-[#25201d]"></h3>
+              <button id="next-month-btn" class="h-10 w-10 rounded-full text-2xl text-[#5f554e] hover:bg-[#f0e4d4]" type="button">&rarr;</button>
+            </div>
+            <div id="calendar-weekdays" class="mb-2 grid grid-cols-7 gap-2 text-center text-xs font-bold text-[#8c7c70]"></div>
+            <div id="calendar-days" class="grid grid-cols-7 gap-2 text-center"></div>
+          </div>
+          <div id="time-view" class="hidden">
+            <button id="back-to-calendar-btn" class="mb-4 text-sm font-bold text-[#7d1f2d] underline" type="button">${t("backCalendar")}</button>
+            <p id="selected-date-text" class="mb-4 text-center font-bold text-[#5f554e]"></p>
+            <div id="time-slots" class="grid grid-cols-3 gap-3 sm:grid-cols-4"></div>
+            <div class="mt-5">
+              <label for="student-id-input" class="mb-1 block text-sm font-bold text-[#25201d]">Número de identificación de estudiante</label>
+              <input id="student-id-input" type="text" placeholder="Ej: 1234567890" class="w-full rounded-xl border border-[#e4d4bd] bg-white/70 p-3 text-sm" />
+              <p class="mt-2 text-xs font-bold text-[#7d1f2d]">Ingresa tu número de identificación de estudiante para continuar.</p>
+            </div>
+            <p id="time-warning" class="mt-4 hidden rounded-2xl border border-[#f1c7ce] bg-[#fff5f6] px-4 py-3 text-sm font-bold text-[#7d1f2d]">
+              Selecciona una hora disponible para poder confirmar la solicitud.
+            </p>
+            <button id="confirm-appointment-btn" class="mt-4 w-full rounded-full bg-[#7d1f2d] py-3 font-bold text-white disabled:bg-[#c9c0b8]" disabled type="button">${t("confirm")}</button>
+          </div>
+        </div>
+      `;
+      content.querySelector(".modal-close-btn").addEventListener("click", () => closeModal($("#appointment-modal")));
+      $("#prev-month-btn").addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
+      $("#next-month-btn").addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() + 1); renderCalendar(); });
+      $("#back-to-calendar-btn").addEventListener("click", resetAppointmentView);
+      $("#confirm-appointment-btn").addEventListener("click", confirmAppointment);
+      openModal("appointment-modal");
+      resetAppointmentView();
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      currentDate.setDate(1);
+      const month = currentDate.getMonth();
+      const year = currentDate.getFullYear();
+      $("#month-year").textContent = new Date(year, month).toLocaleString(lang, { month: "long", year: "numeric" });
+      $("#calendar-weekdays").innerHTML = t("days").map((day) => `<div>${day}</div>`).join("");
+
+      const calendarDays = $("#calendar-days");
+      calendarDays.innerHTML = "";
+      const firstDay = currentDate.getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      const todayTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+
+      for (let i = 0; i < firstDay; i++) {
+        calendarDays.insertAdjacentHTML("beforeend", "<div></div>");
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayEl = document.createElement("button");
+        const dayDate = new Date(year, month, day);
+        const dayOfWeek = dayDate.getDay();
+        dayEl.type = "button";
+        dayEl.textContent = day;
+        dayEl.className = "calendar-day mx-auto flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold";
+
+        if (dayDate.getTime() < todayTimestamp || dayOfWeek === 0) {
+          dayEl.classList.add("disabled");
+          dayEl.disabled = true;
+        } else {
+          dayEl.addEventListener("click", () => selectDate(dayDate));
+        }
+
+        if (dayDate.toDateString() === today.toDateString()) dayEl.classList.add("today");
+        if (selectedDate && dayDate.toDateString() === selectedDate.toDateString()) dayEl.classList.add("selected");
+        calendarDays.appendChild(dayEl);
+      }
+    }
+
+    function selectDate(date) {
+      selectedDate = date;
+      $("#calendar-view").classList.add("hidden");
+      $("#time-view").classList.remove("hidden");
+      $("#appointment-title").textContent = t("appointmentTimeTitle");
+      $("#selected-date-text").textContent = selectedDate.toLocaleDateString(lang, { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+      renderTimeSlots();
+    }
+
+    function checkConfirmEnabled() {
+      const idValue = $("#student-id-input") ? $("#student-id-input").value.trim() : "";
+      const missingTime = idValue.length >= 3 && !selectedTime;
+      const warning = $("#time-warning");
+      if (warning) warning.classList.toggle("hidden", !missingTime);
+      $("#confirm-appointment-btn").disabled = !(selectedTime && idValue.length >= 3);
+    }
+
+    function renderTimeSlots() {
+      const container = $("#time-slots");
+      container.innerHTML = "";
+      selectedTime = null;
+      $("#confirm-appointment-btn").disabled = true;
+      if ($("#time-warning")) $("#time-warning").classList.add("hidden");
+
+      const day = selectedDate.getDay();
+      const times = day >= 1 && day <= 5
+        ? ["10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"]
+        : day === 6
+          ? ["11:00", "12:00", "13:00", "14:00"]
+          : [];
+
+      if (!times.length) {
+        container.innerHTML = `<p class="col-span-full text-center text-sm text-[#6f6257]">${t("noTimes")}</p>`;
+        return;
+      }
+
+      times.forEach((time) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = time;
+        button.className = "time-slot rounded-xl border border-[#e4d4bd] bg-white/70 p-2 text-center font-mono text-sm";
+        button.addEventListener("click", () => {
+          $$(".time-slot").forEach((slot) => slot.classList.remove("selected"));
+          button.classList.add("selected");
+          selectedTime = time;
+          checkConfirmEnabled();
+        });
+        container.appendChild(button);
+      });
+
+      if ($("#student-id-input")) {
+        $("#student-id-input").addEventListener("input", checkConfirmEnabled);
+      }
+    }
+
+    function resetAppointmentView() {
+      selectedDate = null;
+      selectedTime = null;
+      if ($("#time-warning")) $("#time-warning").classList.add("hidden");
+      $("#time-view").classList.add("hidden");
+      $("#calendar-view").classList.remove("hidden");
+      $("#appointment-title").textContent = t("appointmentTitle");
+    }
+
+    function confirmAppointment() {
+      const content = $("#appointment-modal .modal-content");
+      const studentId = $("#student-id-input") ? $("#student-id-input").value.trim() : "";
+      content.innerHTML = `
+        <div class="modal-body p-8 text-center">
+          <div class="mb-4 text-6xl text-[#7d1f2d]"><i class="fas fa-circle-exclamation"></i></div>
+          <h2 class="font-['Cormorant_Garamond'] text-3xl font-bold text-[#25201d]">No encontrado</h2>
+          <p class="mt-3 text-[#6f6257]">El número de identificación ingresado no se encuentra en nuestra base de estudiantes.</p>
+          <p id="student-id-result" class="my-3 rounded-2xl bg-[#f0e4d4] p-3 font-bold text-[#25201d]"></p>
+          <p class="text-sm text-[#7d1f2d]">Por favor contacta al profesor o administrador para verificar tu información antes de agendar.</p>
+          <button id="final-close-btn" class="mt-6 w-full rounded-full bg-[#25201d] py-3 font-bold text-white" type="button">OK</button>
+        </div>
+      `;
+      $("#student-id-result").textContent = `ID: ${studentId}`;
+      $("#final-close-btn").addEventListener("click", () => closeModal($("#appointment-modal")));
+    }
+
+    function openAdminModal() {
+      $("#admin-password").value = "";
+      $("#admin-error").textContent = "";
+      $("#admin-status").textContent = "";
+      $("#admin-login").classList.remove("hidden");
+      $("#admin-panel").classList.add("hidden");
+      openModal("admin-modal");
+      setTimeout(() => $("#admin-password").focus(), 50);
+    }
+
+    function unlockAdmin() {
+      if ($("#admin-password").value !== ADMIN_PASSWORD) {
+        $("#admin-error").textContent = "Clave incorrecta.";
+        return;
+      }
+      $("#admin-login").classList.add("hidden");
+      $("#admin-panel").classList.remove("hidden");
+      fillAdminForm();
+    }
+
+    function fillAdminForm() {
+      $("#admin-name").value = business.name || "";
+      $("#admin-brand").value = business.brand || "";
+      $("#admin-phone").value = business.phone || "";
+      $("#admin-whatsapp").value = business.whatsapp || "";
+      $("#admin-location").value = business.location || "";
+      $("#admin-profile").value = business.profileImage || "";
+      $("#admin-image-page").value = business.imageEditPage || "";
+      $("#admin-hero").value = business.heroImage || "";
+      $("#admin-instagram").value = business.instagram || "";
+      $("#admin-facebook").value = business.facebook || "";
+      $("#admin-gallery").value = normalizeGalleryImages(business.galleryImages).join(", ");
+      $("#admin-custom-css").value = business.customCss || "";
+      $("#admin-lang-edit").value = lang;
+      fillAdminLanguageFields();
+      $("#admin-image-link").href = business.imageEditPage || defaultConfig.imageEditPage;
+    }
+
+    function fillAdminLanguageFields() {
+      if (!$("#admin-role")) return;
+      const editLang = $("#admin-lang-edit").value || lang;
+      const overrides = business.textOverrides && business.textOverrides[editLang] ? business.textOverrides[editLang] : {};
+      $("#admin-role").value = overrides.role || translations[editLang].role || "";
+      $("#admin-tagline").value = overrides.tagline || translations[editLang].tagline || "";
+      $("#admin-footer").value = overrides.footer || translations[editLang].footer || "";
+    }
+
+    function collectAdminLanguageFields() {
+      const editLang = $("#admin-lang-edit").value || lang;
+      business.textOverrides = business.textOverrides || { en: {}, es: {}, fr: {}, it: {} };
+      business.textOverrides[editLang] = {
+        ...(business.textOverrides[editLang] || {}),
+        role: $("#admin-role").value.trim(),
+        tagline: $("#admin-tagline").value.trim(),
+        footer: $("#admin-footer").value.trim()
+      };
+    }
+
+    function saveAdminForm(event) {
+      event.preventDefault();
+      collectAdminLanguageFields();
+      business = {
+        ...business,
+        name: $("#admin-name").value.trim(),
+        brand: $("#admin-brand").value.trim(),
+        phone: $("#admin-phone").value.trim(),
+        whatsapp: $("#admin-whatsapp").value.trim(),
+        location: $("#admin-location").value.trim(),
+        profileImage: $("#admin-profile").value.trim() || defaultConfig.profileImage,
+        imageEditPage: $("#admin-image-page").value.trim() || defaultConfig.imageEditPage,
+        heroImage: $("#admin-hero").value.trim() || defaultConfig.heroImage,
+        instagram: $("#admin-instagram").value.trim(),
+        facebook: $("#admin-facebook").value.trim(),
+        galleryImages: normalizeGalleryImages($("#admin-gallery").value),
+        customCss: $("#admin-custom-css").value
+      };
+      saveConfig();
+      applyBusinessConfig();
+      applyLanguage(lang);
+      $("#admin-status").textContent = "Cambios guardados en este navegador.";
+    }
+
+    function resetAdminConfig() {
+      if (!confirm("¿Quieres restaurar la tarjeta a la versión original?")) return;
+      business = structuredClone(defaultConfig);
+      localStorage.removeItem(STORAGE_KEY);
+      applyBusinessConfig();
+      applyLanguage(lang);
+      fillAdminForm();
+      $("#admin-status").textContent = "Configuración restaurada.";
+    }
+
+    $$("[data-lang-btn]").forEach((button) => button.addEventListener("click", () => applyLanguage(button.dataset.langBtn)));
+    // Triple clic en el nombre abre el panel de administrador
+    let _nameClicks = 0, _nameTimer = null;
+    document.getElementById("name-text").addEventListener("click", () => {
+      _nameClicks++;
+      clearTimeout(_nameTimer);
+      _nameTimer = setTimeout(() => { _nameClicks = 0; }, 600);
+      if (_nameClicks >= 3) {
+        _nameClicks = 0;
+        openAdminModal();
+      }
+    });
+    // El botón settings-btn ahora guarda el contacto (ya tiene onclick inline)
+    $("#admin-unlock-btn").addEventListener("click", unlockAdmin);
+    $("#admin-password").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") unlockAdmin();
+    });
+    $("#admin-panel").addEventListener("submit", saveAdminForm);
+    $("#admin-reset-btn").addEventListener("click", resetAdminConfig);
+    $("#admin-lang-edit").addEventListener("change", fillAdminLanguageFields);
+    $("#services-btn").addEventListener("click", () => openModal("services-modal"));
+    $("#gallery-btn").addEventListener("click", () => openModal("gallery-modal"));
+    $("#courses-btn").addEventListener("click", () => openModal("courses-modal"));
+    $("#qr-code-btn").addEventListener("click", () => openModal("qr-code-modal"));
+    $("#appointment-btn").addEventListener("click", openAppointmentModal);
+    $("#save-contact-btn").addEventListener("click", saveContact);
+    $$("[data-pending-link]").forEach((button) => button.addEventListener("click", () => openModal("pending-modal")));
+    $$(".modal-overlay").forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal(modal);
+      });
+      const closeButton = modal.querySelector(".modal-close-btn");
+      if (closeButton) closeButton.addEventListener("click", () => closeModal(modal));
+    });
+
+    applyBusinessConfig();
+    applyLanguage(lang);
+
+    function alignCallFloat() {
+      const card = document.querySelector(".card-container");
+      const btn = document.querySelector(".call-float");
+      if (!card || !btn) return;
+      const rect = card.getBoundingClientRect();
+      const rightGap = window.innerWidth - rect.right;
+      btn.style.right = `${rightGap}px`;
+    }
+    alignCallFloat();
+    window.addEventListener("resize", alignCallFloat);
+    window.addEventListener("orientationchange", alignCallFloat);
+
+    function peekCallFloat() {}
+    peekCallFloat();
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
